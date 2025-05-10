@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio - Ajroudi Mohamed Aymen</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f7f7f7;
+      color: #333;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background: #1e293b;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    nav {
+      background: #0f172a;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    section {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h2 {
+      color: #1e293b;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 0.5rem;
+    }
+
+    .projects, .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+
+    .card {
+      background: white;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #1e293b;
+      color: white;
+    }
+
+    #typewriter {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1 id="typewriter"></h1>
+    <p>Étudiant en cybersécurité - Développeur Full Stack</p>
+  </header>
+
+  <nav>
+    <a href="#projets">Projets</a>
+    <a href="#competences">Compétences</a>
+    <a href="#formation">Formation</a>
+  </nav>
+
+  <section id="projets">
+    <h2>Projets</h2>
+    <div class="projects">
+      <div class="card">
+        <h3>B Move On</h3>
+        <p>Amélioration d’apps mobiles logistiques pour vélos cargos.</p>
+      </div>
+      <div class="card">
+        <h3>Projet Flutter Personnel</h3>
+        <p>Création d’une app mobile avec Provider pour la gestion de tâches.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="competences">
+    <h2>Compétences</h2>
+    <div class="skills">
+      <div class="card">Flutter</div>
+      <div class="card">React</div>
+      <div class="card">Node.js</div>
+      <div class="card">PostgreSQL</div>
+      <div class="card">Docker</div>
+      <div class="card">Pentest (Burp, Wireshark)</div>
+    </div>
+  </section>
+
+  <section id="formation">
+    <h2>Formation</h2>
+    <p>ESIEA - Cycle Ingénieur Informatique, spécialité Cybersécurité</p>
+  </section>
+
+  <footer>
+    © <span id="year"></span> Ajroudi Mohamed Aymen
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Effet machine à écrire
+    const text = "Ajroudi Mohamed Aymen";
+    let index = 0;
+    function typeWriter() {
+      if (index < text.length) {
+        document.getElementById("typewriter").innerHTML += text.charAt(index);
+        index++;
+        setTimeout(typeWriter, 100);
+      }
+    }
+    typeWriter();
+
+    // Année dynamique
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Scroll fluide (pour compatibilité tous navigateurs)
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener("click", function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute("href")).scrollIntoView({
+          behavior: "smooth"
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
